@@ -13,15 +13,14 @@
 <body>
 <header class="topbar" id="top">
   <a class="logo" href="index.html">AM</a>
-  <nav class="nav" id="site-nav" aria-label="Основная навигация">
+  <nav class="nav" id="site-nav">
     <a href="index.html" class="current">Главная</a>
     <a href="about.html">Обо мне</a>
-    <a href="interactive.html">Формы</a>
     <a href="index.html#contacts" class="nav-cta">Контакты</a>
   </nav>
   <div class="topbar-tools">
-    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Переключить тему" aria-pressed="false"></button>
-    <button type="button" class="burger" aria-label="Меню" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+    <button type="button" class="theme-toggle" id="theme-toggle" title="Переключить тему"></button>
+    <button type="button" class="burger" title="Меню"><span></span><span></span><span></span></button>
   </div>
 </header>
 
@@ -32,9 +31,9 @@
       <h1>Маликов<br>Азимек</h1>
       <p class="meta">17 лет · Кыргызстан</p>
       <ul class="socials">
-        <li><a href="https://t.me/AZIIM02" target="_blank" rel="noopener" aria-label="Telegram">T</a></li>
-        <li><a href="https://github.com/AZIMSGIT" target="_blank" rel="noopener" aria-label="GitHub">G</a></li>
-        <li><a href="https://instagram.com/azim_best_" target="_blank" rel="noopener" aria-label="Instagram">I</a></li>
+        <li><a href="https://t.me/AZIIM02" target="_blank" rel="noopener" title="Telegram">T</a></li>
+        <li><a href="https://github.com/AZIMSGIT" target="_blank" rel="noopener" title="GitHub">G</a></li>
+        <li><a href="https://instagram.com/azim_best_" target="_blank" rel="noopener" title="Instagram">I</a></li>
       </ul>
     </div>
     <div class="hero-photo">
@@ -115,11 +114,8 @@
       <h2 class="box-title box-title-light">Портфолио</h2>
     </div>
     <div class="portfolio-body">
-      <ul class="tabs">
-        <li><a href="interactive.html">Формы</a></li>
-      </ul>
       <h3>Учебные проекты</h3>
-      <p>Мои работы на HTML, CSS и JavaScript:<br>выберите раздел выше.</p>
+      <p>Здесь появятся мои работы<br>на HTML, CSS и JavaScript.</p>
       <p class="note">Портфолио пополняется</p>
     </div>
   </section>
@@ -127,23 +123,29 @@
   <section class="light contacts" id="contacts">
     <h2 class="box-title">Контакты</h2>
     <p class="lead">Если вам нужен сайт или помощь с кодом, напишите мне. Отвечу на сообщение в ближайшее время.</p>
-    <a class="submit" href="interactive.html">Написать мне</a>
+    <form class="form" id="contact-form">
+      <label>Email<input type="email" name="email" required></label>
+      <label>Тема<input type="text" name="subject" required></label>
+      <label>Комментарий<textarea name="comment" rows="4" required></textarea></label>
+      <button type="submit" class="submit">Отправить</button>
+      <p class="form-success" id="form-success" hidden>Спасибо! Форма заполнена верно.</p>
+    </form>
   </section>
 </main>
 
 <footer class="footer">
   <a class="to-top" href="#top">Наверх<span>^</span></a>
   <ul class="socials socials-light">
-    <li><a href="https://t.me/AZIIM02" target="_blank" rel="noopener" aria-label="Telegram">T</a></li>
-    <li><a href="https://github.com/AZIMSGIT" target="_blank" rel="noopener" aria-label="GitHub">G</a></li>
-    <li><a href="https://instagram.com/azim_best_" target="_blank" rel="noopener" aria-label="Instagram">I</a></li>
+    <li><a href="https://t.me/AZIIM02" target="_blank" rel="noopener" title="Telegram">T</a></li>
+    <li><a href="https://github.com/AZIMSGIT" target="_blank" rel="noopener" title="GitHub">G</a></li>
+    <li><a href="https://instagram.com/azim_best_" target="_blank" rel="noopener" title="Instagram">I</a></li>
   </ul>
   <p>Маликов Азимек — Портфолио</p>
 </footer>
 
-<div class="modal" id="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title" aria-hidden="true">
+<div class="modal" id="project-modal">
   <div class="modal-content">
-    <button type="button" class="modal-close" data-modal-close aria-label="Закрыть">&times;</button>
+    <button type="button" class="modal-close" title="Закрыть">&times;</button>
     <h2 id="project-modal-title">Учебный проект</h2>
     <p>Это сайт-портфолио на чистых HTML, CSS и JavaScript, без фреймворков. В нём есть CSS-лаборатория, страница с видео, аудио и галереей, а также форма с проверкой данных.</p>
   </div>

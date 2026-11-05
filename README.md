@@ -13,20 +13,19 @@
 ## Структура
 ```text
 project/
-├── index.html, about.html, interactive.html
+├── index.html, about.html
 ├── css/style.css
-├── js/script.js, js/forms.js
+├── js/script.js
 └── assets/{images,videos,audio,icons}/
 ```
 
 ## Страницы
-- **index.html**: главная (hero, учебный проект с модальным окном, обо мне, навыки, портфолио, контакты).
+- **index.html**: главная (hero, учебный проект с модальным окном, обо мне, навыки, портфолио, контакты с формой из трёх полей).
 - **about.html**: подробнее обо мне, фото, видео, аудио.
-- **interactive.html**: форма с 12 типами полей и проверкой.
 
-## Функции JavaScript
-- `script.js`: `byId`, `applyTheme`, `initTheme`, `initMobileNav`, `openModal`, `closeModal`, `initModals`
-- `forms.js`: `getTodayString`, `showError`, `focusField`, `validateAll`, объект `validators`
+
+## JavaScript
+- `script.js`: четыре блока без функций: тема, мобильное меню, модальное окно, форма
 
 ## Главные CSS-свойства
 CSS-переменные и `:root[data-theme="dark"]` (тема), `position`, `transition`, `transform`, `display: flex`, `display: grid`, `@media`, `aspect-ratio`, `object-fit`.
