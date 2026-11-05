@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Формы — Маликов Азимек</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/script.js" defer></script>
+<script src="js/forms.js" defer></script>
+</head>
+<body>
+<header class="topbar" id="top">
+  <a class="logo" href="index.html">AM</a>
+  <nav class="nav" id="site-nav" aria-label="Основная навигация">
+    <a href="index.html">Главная</a>
+    <a href="about.html">Обо мне</a>
+    <a href="interactive.html" class="current">Формы</a>
+    <a href="index.html#contacts" class="nav-cta">Контакты</a>
+  </nav>
+  <div class="topbar-tools">
+    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Переключить тему" aria-pressed="false"></button>
+    <button type="button" class="burger" aria-label="Меню" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+  <section class="light">
+    <h1 class="box-title">Формы</h1>
+    <p class="lead">Форма обратной связи с разными типами полей. Поля со звёздочкой обязательны.</p>
+    <div class="form-page">
+      <form id="register-form" class="reg-form" novalidate>
+        <fieldset>
+          <legend>Личные данные</legend>
+        <div class="form-row">
+          <label for="name">Имя *</label>
+          <input class="text-field" type="text" id="name" name="name" autocomplete="name" required>
+          <p class="error" id="name-error" aria-live="polite"></p>
+        </div>
+        <div class="form-row">
+          <label for="email">Email *</label>
+          <input class="text-field" type="email" id="email" name="email" autocomplete="email" required>
+          <p class="error" id="email-error" aria-live="polite"></p>
+        </div>
+        <div class="form-row">
+          <label for="password">Пароль * (от 8 символов, буквы и цифры)</label>
+          <input class="text-field" type="password" id="password" name="password" autocomplete="new-password" required>
+          <p class="error" id="password-error" aria-live="polite"></p>
+        </div>
+        <div class="form-row">
+          <label for="experience">Опыт в программировании, лет</label>
+          <input class="text-field" type="number" id="experience" name="experience" min="0" max="50" step="1">
+          <p class="error" id="experience-error" aria-live="polite"></p>
+        </div>
+        <div class="form-row">
+          <label for="visit-date">Удобная дата для связи *</label>
+          <input class="text-field" type="date" id="visit-date" name="visit-date" required>
+          <p class="error" id="visit-date-error" aria-live="polite"></p>
+        </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Предпочтения</legend>
+        <div class="form-row">
+          <label for="favorite-color">Любимый цвет</label>
+          <input type="color" id="favorite-color" name="favorite-color" value="#2f6fd1">
+        </div>
+        <div class="form-row">
+          <label for="rating">Оценка сайта: <output id="rating-value">7</output> из 10</label>
+          <input type="range" id="rating" name="rating" min="1" max="10" step="1" value="7">
+        </div>
+        <div class="form-row">
+          <span class="label-text" id="contact-label">Как с вами связаться? *</span>
+          <div class="choice-group" id="contact-group" role="radiogroup" aria-labelledby="contact-label">
+            <label class="choice"><input type="radio" name="contact" value="telegram"> Telegram</label>
+            <label class="choice"><input type="radio" name="contact" value="email"> Email</label>
+            <label class="choice"><input type="radio" name="contact" value="phone"> Телефон</label>
+          </div>
+          <p class="error" id="contact-group-error" aria-live="polite"></p>
+        </div>
+        <div class="form-row">
+          <label for="topic">Тема обращения *</label>
+          <select class="text-field" id="topic" name="topic" required>
+            <option value="">Выберите тему</option>
+            <option value="feedback">Отзыв о сайте</option>
+            <option value="project">Вопрос о проекте</option>
+            <option value="other">Другое</option>
+          </select>
+          <p class="error" id="topic-error" aria-live="polite"></p>
+        </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Сообщение</legend>
+        <div class="form-row">
+          <label for="message">Сообщение * (от 10 символов)</label>
+          <textarea class="text-field" id="message" name="message" rows="4" required></textarea>
+          <p class="error" id="message-error" aria-live="polite"></p>
+        </div>
+        <div class="form-row">
+          <label for="attachment">Файл (до 2 МБ)</label>
+          <input type="file" id="attachment" name="attachment">
+          <p class="error" id="attachment-error" aria-live="polite"></p>
+        </div>
+        <div class="form-row">
+          <label class="choice" for="terms"><input type="checkbox" id="terms" name="terms" required> Я согласен на обработку данных *</label>
+          <p class="error" id="terms-error" aria-live="polite"></p>
+        </div>
+        </fieldset>
+
+        <div class="form-actions">
+          <button type="submit" class="submit">Отправить</button>
+        </div>
+        <p class="form-success" id="form-success" role="status" tabindex="-1" hidden></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <a class="to-top" href="#top">Наверх<span>^</span></a>
+  <ul class="socials socials-light">
+    <li><a href="https://t.me/AZIIM02" target="_blank" rel="noopener" aria-label="Telegram">T</a></li>
+    <li><a href="https://github.com/AZIMSGIT" target="_blank" rel="noopener" aria-label="GitHub">G</a></li>
+    <li><a href="https://instagram.com/azim_best_" target="_blank" rel="noopener" aria-label="Instagram">I</a></li>
+  </ul>
+  <p>Маликов Азимек — Портфолио</p>
+</footer>
+</body>
+</html>

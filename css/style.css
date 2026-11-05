@@ -1,0 +1,176 @@
+/* ===== 1. Переменные: цвета для светлой и тёмной темы ===== */
+:root {
+  --bg: #e6e6e6;
+  --panel: #f4f4f4;
+  --card: #fff;
+  --text: #111;
+  --muted: #555;
+  --dark: #1c1c1c;
+  --line: #bbb;
+  --accent: #2f6fd1;
+  --error: #c62828;
+}
+:root[data-theme="dark"] {
+  --bg: #101010;
+  --panel: #1a1a1a;
+  --card: #242424;
+  --text: #f2f2f2;
+  --muted: #b5b5b5;
+  --dark: #0a0a0a;
+  --line: #444;
+  --error: #ff8a80;
+}
+
+/* ===== 2. Общие правила ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 56px; }
+body { font-family: "Montserrat", Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+img, video { display: block; max-width: 100%; }
+button, input, select, textarea { font: inherit; color: inherit; }
+select { padding: 6px 10px; border: 2px solid var(--text); background: transparent; }
+option { background: #fff; color: #111; }
+code { font-family: Consolas, monospace; font-size: 12px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.no-scroll { overflow: hidden; }
+
+/* ===== 3. Кнопки: при наведении меняются скругление, цвет, цвет текста и размер ===== */
+.nav-cta, .bar-link, .submit, .socials a {
+  transition: border-radius 0.25s, background-color 0.25s, color 0.25s, transform 0.25s;
+}
+.nav-cta:hover, .bar-link:hover, .submit:hover, .socials a:hover {
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  transform: scale(1.08);
+}
+
+/* ===== 4. Шапка и меню ===== */
+.topbar { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; height: 56px; padding: 0 6vw; background: #000; color: #fff; font-size: 12px; }
+.logo { font-weight: 700; letter-spacing: 0.3em; }
+.nav { display: flex; align-items: center; gap: 24px; margin-left: auto; }
+.nav .current { border-bottom: 2px solid #fff; }
+.nav-cta { padding: 8px 20px; border-radius: 999px; background: #fff; color: #000; font-weight: 700; text-transform: uppercase; }
+.topbar-tools { display: flex; align-items: center; gap: 14px; margin-left: 20px; }
+.theme-toggle { width: 34px; height: 34px; border: 1px solid #fff; border-radius: 50%; background: transparent; color: #fff; cursor: pointer; }
+.theme-toggle::before { content: "\263E"; }
+:root[data-theme="dark"] .theme-toggle::before { content: "\2600"; }
+.theme-toggle:hover { background: #fff; color: #000; }
+.burger { display: none; flex-direction: column; gap: 5px; padding: 0; border: 0; background: none; cursor: pointer; }
+.burger span { width: 22px; height: 2px; background: #fff; transition: transform 0.2s, opacity 0.2s; }
+
+/* ===== 5. Главная: hero ===== */
+.hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 520px; background: var(--panel); }
+.hero-text { display: flex; flex-direction: column; justify-content: center; padding: 60px 6vw 60px 14vw; }
+.hello { font-size: 18px; }
+.hero h1 { margin: 8px 0 12px; font-size: clamp(32px, 4vw, 52px); line-height: 1.15; }
+.meta { font-size: 13px; color: var(--muted); }
+.socials { display: flex; gap: 12px; margin-top: 24px; }
+.socials a { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 8px; background: var(--line); font-size: 13px; font-weight: 700; }
+.hero-photo { position: relative; overflow: hidden; background: #999; }
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+.initials { position: absolute; right: 6%; top: 6%; font-size: clamp(90px, 12vw, 180px); line-height: 1; color: rgba(255, 255, 255, 0.85); }
+
+/* ===== 6. Тёмный блок «Учебный проект» ===== */
+.project { padding: 48px 6vw; background: var(--dark); color: #fff; }
+.project-inner { max-width: 1100px; margin: 0 auto; }
+.project h2 { margin-bottom: 14px; font-size: 14px; letter-spacing: 0.2em; text-transform: uppercase; }
+.project p { max-width: 620px; font-size: 13px; color: #ccc; }
+.bar-link { display: inline-block; margin-top: 28px; padding: 6px 14px; border: 1px solid transparent; border-left-color: currentColor; border-right-color: currentColor; background: transparent; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; }
+
+/* ===== 7. Светлые секции: обо мне, навыки, контакты ===== */
+.light { padding: 70px 6vw; text-align: center; background: var(--panel); }
+.skills { padding-top: 0; }
+.box-title { display: inline-block; padding: 14px 48px; border: 3px solid var(--text); font-size: 14px; letter-spacing: 0.35em; text-transform: uppercase; }
+.lead { max-width: 520px; margin: 28px auto; font-size: 13px; }
+.divider { margin: 32px 0; letter-spacing: 0.3em; }
+.cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 32px 56px; max-width: 760px; margin: 0 auto; text-align: left; }
+.cards li { display: flex; gap: 12px; max-width: 240px; }
+.icon { flex: none; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 8px; background: var(--line); font-size: 11px; font-weight: 700; }
+.cards h3 { font-size: 11px; text-transform: uppercase; }
+.cards p { font-size: 11px; color: var(--muted); }
+.skill-groups { max-width: 420px; margin: 40px auto 0; text-align: left; }
+.group + .group { margin-top: 36px; }
+.group h3 { margin-bottom: 18px; font-size: 13px; text-transform: uppercase; }
+.group ul { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 0; font-size: 16px; }
+.submit { display: inline-block; padding: 12px 40px; border: 2px solid var(--text); background: transparent; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; }
+
+/* ===== 8. Портфолио ===== */
+.portfolio-banner { display: grid; place-items: center; height: 200px; background: #6f8795 url("../assets/images/mountains.jpg") center / cover; }
+.box-title-light { border-color: #111; background: rgba(255, 255, 255, 0.75); color: #111; }
+.portfolio-body { display: flex; flex-direction: column; align-items: center; min-height: 420px; padding: 0 6vw 28px; background: var(--dark); color: #fff; text-align: center; }
+.tabs { display: flex; width: 100%; max-width: 320px; margin-bottom: 56px; border-bottom: 1px solid #555; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; }
+.tabs li { flex: 1; }
+.tabs a { display: block; padding: 14px 0; color: #aaa; }
+.tabs a:hover { color: #fff; box-shadow: inset 0 -2px #fff; }
+.portfolio-body h3 { margin-bottom: 16px; letter-spacing: 0.15em; text-transform: uppercase; }
+.portfolio-body p { font-size: 12px; color: #ddd; }
+.portfolio-body .note { margin-top: auto; padding-top: 60px; color: #fff; }
+
+/* ===== 9. Футер ===== */
+.footer { display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 40px 6vw; background: var(--dark); color: #fff; font-size: 11px; text-align: center; }
+.to-top { display: flex; flex-direction: column; align-items: center; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; }
+.socials-light { margin-top: 0; }
+.socials-light a { width: 24px; height: 24px; border: 1px solid #fff; border-radius: 4px; background: transparent; font-size: 10px; }
+
+/* ===== 10. Модальное окно ===== */
+.modal { position: fixed; inset: 0; z-index: 100; display: none; place-items: center; padding: 20px; background: rgba(0, 0, 0, 0.75); }
+.modal.open { display: grid; }
+.modal-content { position: relative; width: 100%; max-width: 560px; max-height: 90vh; overflow: auto; padding: 40px 32px 32px; background: var(--card); }
+.modal-content h2 { margin-bottom: 14px; font-size: 14px; letter-spacing: 0.2em; text-transform: uppercase; }
+.modal-content p { font-size: 13px; }
+.modal-close { position: absolute; top: 8px; right: 8px; width: 36px; height: 36px; border: 0; border-radius: 50%; background: transparent; font-size: 24px; cursor: pointer; }
+.modal-close:hover { background: var(--accent); color: #fff; }
+
+/* ===== 11. Страница «Побольше обо мне» ===== */
+.more-block { max-width: 720px; margin: 48px auto 0; text-align: left; }
+.more-block h3 { margin-bottom: 16px; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; }
+.more-block p { font-size: 13px; }
+.more-block img, .more-block video { width: 100%; min-height: 200px; background: var(--line); }
+.more-back { margin-top: 56px; }
+
+/* ===== 12. Общие элементы ===== */
+input[type="range"] { accent-color: var(--accent); }
+audio { display: block; width: 100%; }
+
+/* ===== 17. Страница «Формы» ===== */
+.form-page { max-width: 720px; margin: 48px auto 0; text-align: left; }
+.reg-form fieldset { margin-bottom: 24px; padding: 20px; border: 1px solid var(--line); background: var(--card); }
+.reg-form legend { padding: 0 8px; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.form-row { display: grid; gap: 6px; margin-bottom: 14px; }
+.form-row label, .label-text { font-size: 12px; font-weight: 600; }
+.text-field { width: 100%; padding: 10px 12px; border: 2px solid var(--text); background: transparent; font-size: 13px; }
+.text-field[aria-invalid="true"] { border-color: var(--error); }
+input[type="color"] { width: 56px; height: 36px; padding: 0; border: 2px solid var(--text); background: none; }
+.choice-group { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.form-row .choice { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 400; }
+.error { min-height: 1em; font-size: 11px; color: var(--error); }
+.form-actions { text-align: center; }
+.form-success { margin-top: 20px; padding: 16px 20px; border: 2px solid #2f9a6e; font-size: 13px; text-align: center; }
+
+/* ===== 18. Телефон (до 767px) ===== */
+@media (max-width: 767px) {
+  .topbar-tools { margin-left: auto; }
+  .burger { display: flex; }
+  .nav { position: absolute; top: 56px; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; max-height: 0; overflow: hidden; background: #000; text-align: center; transition: max-height 0.3s ease; }
+  .nav a { padding: 16px 0; border-top: 1px solid #222; }
+  .nav-cta, .nav-cta:hover { border-radius: 0; transform: none; }
+  .topbar.open .nav { max-height: 400px; }
+  .topbar.open .burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .topbar.open .burger span:nth-child(2) { opacity: 0; }
+  .topbar.open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .hero { position: relative; display: block; min-height: 0; }
+  .hero-photo { height: 78vh; min-height: 420px; }
+  .initials { display: none; }
+  .hero-text { position: absolute; right: 0; bottom: 0; left: 0; padding: 80px 6vw 24px; background: linear-gradient(transparent, rgba(0, 0, 0, 0.8)); color: #fff; }
+  .hero .meta { color: #ddd; }
+  .hero .socials { position: absolute; right: 6vw; bottom: 24px; flex-direction: column; margin-top: 0; }
+  .cards { flex-direction: column; align-items: center; }
+  .light { padding: 56px 6vw; }
+  .box-title { padding: 12px 32px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
